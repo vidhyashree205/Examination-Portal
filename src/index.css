@@ -1,0 +1,136 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e2e8f0;
+  background: #020617;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(34, 211, 238, 0.18), transparent 26%),
+    radial-gradient(circle at right, rgba(168, 85, 247, 0.12), transparent 25%),
+    #020617;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.card-surface {
+  @apply rounded-3xl border border-slate-800 bg-slate-900/80 shadow-glow backdrop-blur;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+.certificate-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(34, 211, 238, 0.38);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.certificate-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.06), rgba(168, 85, 247, 0.08));
+  pointer-events: none;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #0f172a;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .certificate-card {
+    border-color: #dbeafe !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .certificate-card::before,
+  .certificate-card::after {
+    display: none;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #0f172a;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  a,
+  button {
+    display: none !important;
+  }
+}
